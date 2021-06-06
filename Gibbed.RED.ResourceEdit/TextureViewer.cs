@@ -1,21 +1,21 @@
 ﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
- * 
+ *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
  * arising from the use of this software.
- * 
+ *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
- * 
+ *
  * 1. The origin of this software must not be misrepresented; you must not
  *    claim that you wrote the original software. If you use this software
  *    in a product, an acknowledgment in the product documentation would
  *    be appreciated but is not required.
- * 
+ *
  * 2. Altered source versions must be plainly marked as such, and must not
  *    be misrepresented as being the original software.
- * 
+ *
  * 3. This notice may not be removed or altered from any source
  *    distribution.
  */
@@ -169,21 +169,21 @@ namespace Gibbed.RED.ResourceEdit
 
                     case FileFormats.Game.ETextureCompression.TCM_DXTNoAlpha:
                     {
-                        data = Squish.Native.DecompressImage(
+                        data = Squish.DecompressImage(
                             mip.Data,
                             (int)mip.Width,
                             (int)mip.Height,
-                            Squish.Native.Flags.DXT1);
+                            Squish.Flags.DXT1);
                         break;
                     }
 
                     case FileFormats.Game.ETextureCompression.TCM_DXTAlpha:
                     {
-                        data = Squish.Native.DecompressImage(
+                        data = Squish.DecompressImage(
                             mip.Data,
                             (int)mip.Width,
                             (int)mip.Height,
-                            Squish.Native.Flags.DXT5);
+                            Squish.Flags.DXT5);
                         break;
                     }
 

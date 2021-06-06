@@ -1,0 +1,9 @@
+[submodule "NDesk.Options"]
+	path = NDesk.Options
+	url = ../NDesk.Options.git
+[submodule "Gibbed.IO"]
+	path = Gibbed.IO
+	url = ../Gibbed.IO.git
+[submodule "Gibbed.Squish"]
+	path = Gibbed.Squish
+	url = ../Gibbed.Squish.git

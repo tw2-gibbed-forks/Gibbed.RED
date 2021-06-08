@@ -138,6 +138,17 @@ namespace Gibbed.RED.ResourceEdit
         }
         #endregion
 
+        // Glue so we can continue the old interface
+        private byte[] Squish_DecompressImage(byte[] blocks, int width, int height, Squish.Flags flags)
+        {
+            var datasize = Squish.GetStorageRequirements(width, height, flags);
+            byte[] retval;
+
+            retval = new byte[datasize];
+            Squish.DecompressImage(retval, width, height, blocks, flags);
+            return retval;
+        }
+
         private void UpdatePreview(bool first)
         {
             Bitmap bitmap;
@@ -169,20 +180,20 @@ namespace Gibbed.RED.ResourceEdit
 
                     case FileFormats.Game.ETextureCompression.TCM_DXTNoAlpha:
                     {
-                        data = Squish.DecompressImage(
+                        data = Squish_DecompressImage(
                             mip.Data,
-                            (int)mip.Width,
-                            (int)mip.Height,
+                            width,
+                            height,
                             Squish.Flags.DXT1);
                         break;
                     }
 
                     case FileFormats.Game.ETextureCompression.TCM_DXTAlpha:
                     {
-                        data = Squish.DecompressImage(
+                        data = Squish_DecompressImage(
                             mip.Data,
-                            (int)mip.Width,
-                            (int)mip.Height,
+                            width,
+                            height,
                             Squish.Flags.DXT5);
                         break;
                     }
